@@ -1,0 +1,52 @@
+{
+  "employee": [
+    {
+      "firstName": "Bhavik",
+      "lastName": "Gajdhar",
+      "username": "Bhavik",
+      "email": "bhavikgajdhar@gmail.com",
+      "phone": "8200684501",
+      "id": 1
+    },
+    {
+      "firstName": "Jigish",
+      "lastName": "Contractor",
+      "username": "Jigish",
+      "email": "j@gmail.com",
+      "phone": "8200684501",
+      "id": 2
+    },
+    {
+      "firstName": "Yasin",
+      "lastName": "Hirani",
+      "username": "Yasin",
+      "email": "m@gmail.com",
+      "phone": "1236547890",
+      "id": 3
+    },
+    {
+      "firstName": "Gurjant",
+      "lastName": "Sandhu",
+      "username": "Gurjant",
+      "email": "b@gmail.com",
+      "phone": "7896541230",
+      "id": 4
+    },
+    {
+      "firstName": "Darsh22",
+      "lastName": "Patel",
+      "username": "Darsh",
+      "email": "ashish@gmail.com",
+      "phone": "8200684501",
+      "id": 5
+    },
+    {
+      "firstName": "Jigish",
+      "lastName": "Sandhu",
+      "username": "Hemu",
+      "email": "m@gmail.com",
+      "phone": "7896541230",
+      "id": 6
+    }
+  ]
+}
