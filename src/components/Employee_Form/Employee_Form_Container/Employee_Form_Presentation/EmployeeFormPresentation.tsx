@@ -1,7 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-// import React,{ Component, useEffect, useState } from "react";
-import React, { Component, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Employee } from "../../../Employee_Listing/Employee";
 import { ValidationSchema } from "../../../Employee_Listing/Employee_Listing_Container/Constants/Constants";
 
 const EmployeeFormPresentation = (props: any) => {
@@ -19,7 +17,7 @@ const EmployeeFormPresentation = (props: any) => {
   };
 
   /**  Update and Submit form call for  middleware*/
-  const handleSubmit = (values: any) => {
+  const handleSubmit = (values: Employee) => {
     if (values.id) {
       props.update(values.id, values);
     } else {
@@ -199,8 +197,4 @@ const EmployeeFormPresentation = (props: any) => {
     </div>
   );
 };
-const EmployeeFormFN = (props: any) => {
-  return <EmployeeFormPresentation params={useParams()} {...props} />;
-};
-
-export { EmployeeFormFN as EmployeeFormPresentation };
+export { EmployeeFormPresentation as EmployeeFormPresentation };

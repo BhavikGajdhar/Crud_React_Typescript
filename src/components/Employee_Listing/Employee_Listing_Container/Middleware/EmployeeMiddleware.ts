@@ -6,7 +6,7 @@ const url = "http://localhost:4500/employee";
 
 /** Get All the Data of Employee Call*/
 export const getEmployeeData = () => {
-    return function(dispatch:any){
+    return function(dispatch:Function){
       axios.get(url).then((response)=>{
         const customers =  response ? response.data : [];
          dispatch(listEmployeeData(customers));
@@ -18,7 +18,7 @@ export const getEmployeeData = () => {
 
   /** Delete Data By ID Call*/
   export const deleteEmployeeData = (id:number) => {
-    return function(dispatch:any){
+    return function(dispatch:Function){
        axios.delete(url + "/" + id).then((response)=>{
         dispatch(deleteEmployee(id));
       }).catch((error)=>{
@@ -28,8 +28,8 @@ export const getEmployeeData = () => {
   };
 
   /** Submit the Data Call */
-  export const postEmployeeData =  (data:Employee,navigate:any) => {
-    return function(dispatch:any){
+  export const postEmployeeData =  (data:Employee,navigate:Function) => {
+    return function(dispatch:Function){
       axios.post(url,data ).then((response)=>{
         const customers =  response ? response.data : [];
          dispatch(submitEmployeeData(customers));
@@ -42,25 +42,24 @@ export const getEmployeeData = () => {
    
   /** PatchValue Call  */
   export const getEmployeeDataById = (id:number) => {
-    return function  (dispatch:any)  { 
+    return function  (dispatch:Function)  { 
        axios.get(url + "/" + id).then((response) => {
           const customers = response ? response.data : [];
           dispatch(getIdEmployeeData(customers));
       }).catch((error)=>{
-        dispatch(getIdEmployeeData(error));
+        
       });
     }
   };
   
   /** Updated Data Call */
-  export const putEmployeeData =  (id:number, data:Employee,navigate:any) => {
-    return function(dispatch:any){
+  export const putEmployeeData =  (id:number, data:Employee, navigate:Function) => {
+    return function(dispatch:Function){
       axios.put(url + "/" + id, data)
       .then((response)=>{
         const customers = response ? response.data : [];
         dispatch(updateEmployeeData(customers));
         navigate("/EmployeeList");
-        // dispatch(updateEmployeeData());
       }).catch((error)=>{
         
       });    

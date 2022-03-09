@@ -1,3 +1,4 @@
+import { AnyAction } from "redux";
 import { Employee } from "../../Employee";
 import { CreateEmployeeActions } from "../Constants/Constants"
 
@@ -6,7 +7,7 @@ export const CreateEmployeeReducer=(
         employeeData:[],
         saveEmployeeData:null,
         idByEmployeeData:null
-    },action:any
+    },action:AnyAction
 )=>{
     switch(action.type){
 
@@ -17,7 +18,7 @@ export const CreateEmployeeReducer=(
 
         /** Remove the data By ID  */    
         case CreateEmployeeActions.DELETE_EMPLOYEE_DATA:
-             const removeData = state.employeeData.filter((item:any) => item.id !== action.payload);
+             const removeData = state.employeeData.filter((item:Employee) => item.id !== action.payload);
             return { ...state, employeeData: removeData };
 
         /** Save The Employee data of List  */    

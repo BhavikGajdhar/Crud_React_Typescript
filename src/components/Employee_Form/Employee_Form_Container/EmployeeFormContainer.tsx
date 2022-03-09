@@ -1,15 +1,16 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { EmployeeFormPresentation } from "./Employee_Form_Presentation/EmployeeFormPresentation";
 import { connect } from "react-redux";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   getEmployeeDataById,
   postEmployeeData,
   putEmployeeData,
 } from "../../Employee_Listing/Employee_Listing_Container/Middleware/EmployeeMiddleware";
+import { Employee } from "../../Employee_Listing/Employee";
+import { AnyAction } from "redux";
 
-const EmployeeFormContainer = (props: any) => {
+const EmployeeFormContainer = (props: AnyAction) => {
 
   let { id } = props.params;
 
@@ -20,18 +21,17 @@ const EmployeeFormContainer = (props: any) => {
   }, []);
 
   /** Add The Employee Data Middleware Call */
-  const saveValue = (value: any) => {
+  const saveValue = (value: Employee) => {
     props.addSampleData(value, props.navigate);
   };
 
   /** Updated The Employee Data Middleware  */
-  const updateValue = (id: number, value: any) => {
+  const updateValue = (id: number, value: Employee) => {
     props.putSampleData(id, value, props.navigate);
   };
 
   /** Go navigation back Form Current Page  */
-  const Navigate = () => {
-    props.getSampleData();
+  const navigate = () => {
     props.navigate("/EmployeeList");
   };
 
@@ -41,26 +41,26 @@ const EmployeeFormContainer = (props: any) => {
         initialValues={props.employeeDataById}
         save={saveValue}
         update={updateValue}
-        navigate={Navigate}
+        navigate={navigate}
       />
     </div>
   );
 };
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: AnyAction) => ({
   employeeDataById: state.CreateEmployeeReducer.idByEmployeeData,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: Function) => ({
   getSampleData: (id: number) => dispatch(getEmployeeDataById(id)),
 
-  putSampleData: (id: number, value: any, navigate: any) =>
+  putSampleData: (id: number, value: Employee, navigate: Function) =>
     dispatch(putEmployeeData(id, value, navigate)),
 
-  addSampleData: (value: any, navigate: any) =>
+  addSampleData: (value: Employee, navigate: Function) =>
     dispatch(postEmployeeData(value, navigate)),
 });
 
-const EmployeeFormlFN = (props: any) => {
+const EmployeeFormlFN = (props: AnyAction) => {
   return <EmployeeFormContainer params={useParams()} {...props} />;
 };
 const employeeFormContainer = connect(

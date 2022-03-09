@@ -7,7 +7,6 @@ export const CreateEmployeeActions = {
     UPDATE_EMPLOYEE_DATA:"UPDATE_EMPLOYEE_DATA"
 };
 const phoneRegExp = /([0-9]{10})/;
-// const userNameRegExp = /^[a-zA-Z0-9][a-zA-Z0-9_-]*$/;
 export const ValidationSchema = Yup.object().shape({
     firstName: Yup.string().trim().required("FirstName is required") .nullable(),
     lastName: Yup.string().trim().required("LastName is required"),
