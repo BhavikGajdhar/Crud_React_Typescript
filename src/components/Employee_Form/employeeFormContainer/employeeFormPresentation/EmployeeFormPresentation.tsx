@@ -37,9 +37,6 @@ const EmployeeFormPresentation = (props: any) => {
       >
         {(formik) => {
           const { values, handleChange } = formik;
-          let x, b;
-          x = values.firstName;
-          b = values.email;
           return (
             <Form>
               <div className="px-6 md:px-12 py-4">
@@ -112,7 +109,7 @@ const EmployeeFormPresentation = (props: any) => {
                           value={
                             props.initialValues
                               ? values.username
-                              : (values.username = x)
+                              : (values.username = values.firstName)
                           }
                           onChange={handleChange}
                           disabled={values.username}
@@ -140,7 +137,7 @@ const EmployeeFormPresentation = (props: any) => {
                           name="email"
                           value={values.email}
                           onChange={handleChange}
-                          disabled={values.email}
+                          disabled={props.initialValues}
                           className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         ></Field>
                       </div>
