@@ -1,8 +1,9 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { Employee } from "../../../Employee_Listing/Employee";
-import { ValidationSchema } from "../../../Employee_Listing/Employee_Listing_Container/Constants/Constants";
+import { Employee, Props } from "../../../Employee_Listing/Employee";
+import { ValidationSchema } from "../../../Employee_Listing/employeeListingContainer/Constants/Constants";
 
 const EmployeeFormPresentation = (props: any) => {
+
   const initialValue = {
     firstName: "",
     lastName: "",

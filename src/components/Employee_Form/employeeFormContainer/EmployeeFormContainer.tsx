@@ -1,16 +1,16 @@
 import { useEffect } from "react";
-import { EmployeeFormPresentation } from "./Employee_Form_Presentation/EmployeeFormPresentation";
+import { EmployeeFormPresentation } from "./employeeFormPresentation/EmployeeFormPresentation";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
   getEmployeeDataById,
   postEmployeeData,
   putEmployeeData,
-} from "../../Employee_Listing/Employee_Listing_Container/Middleware/EmployeeMiddleware";
-import { Employee } from "../../Employee_Listing/Employee";
-import { AnyAction } from "redux";
+} from "../../Employee_Listing/employeeListingContainer/Middleware/EmployeeMiddleware";
+import { Employee, Props } from "../../Employee_Listing/Employee";
 
-const EmployeeFormContainer = (props: AnyAction) => {
+
+const EmployeeFormContainer = (props: Props) => {
 
   let { id } = props.params;
 
@@ -46,7 +46,7 @@ const EmployeeFormContainer = (props: AnyAction) => {
     </div>
   );
 };
-const mapStateToProps = (state: AnyAction) => ({
+const mapStateToProps = (state: Props) => ({
   employeeDataById: state.CreateEmployeeReducer.idByEmployeeData,
 });
 
@@ -60,11 +60,11 @@ const mapDispatchToProps = (dispatch: Function) => ({
     dispatch(postEmployeeData(value, navigate)),
 });
 
-const EmployeeFormlFN = (props: AnyAction) => {
+const EmployeeFormFN = (props: any) => {
   return <EmployeeFormContainer params={useParams()} {...props} />;
 };
 const employeeFormContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(EmployeeFormlFN);
+)(EmployeeFormFN);
 export { employeeFormContainer as EmployeeFormContainer };

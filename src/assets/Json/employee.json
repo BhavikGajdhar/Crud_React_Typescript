@@ -47,6 +47,14 @@
       "email": "m@gmail.com",
       "phone": "7896541230",
       "id": 6
+    },
+    {
+      "firstName": "Yasin",
+      "lastName": "Hirani",
+      "username": "Yasin",
+      "email": "y@gmail.com",
+      "phone": "7896541230",
+      "id": 7
     }
   ]
 }

@@ -38,5 +38,6 @@ export const updateEmployeeData = (data:Employee) =>{
   return{
     type:CreateEmployeeActions.UPDATE_EMPLOYEE_DATA,
     payload : data,
+    id:data.id
   }
 }

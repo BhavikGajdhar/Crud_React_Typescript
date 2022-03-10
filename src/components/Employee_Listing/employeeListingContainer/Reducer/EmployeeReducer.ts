@@ -1,5 +1,4 @@
-import { AnyAction } from "redux";
-import { Employee } from "../../Employee";
+import { Employee, Props } from "../../Employee";
 import { CreateEmployeeActions } from "../Constants/Constants"
 
 export const CreateEmployeeReducer=(
@@ -7,7 +6,7 @@ export const CreateEmployeeReducer=(
         employeeData:[],
         saveEmployeeData:null,
         idByEmployeeData:null
-    },action:AnyAction
+    },action:Props
 )=>{
     switch(action.type){
 
@@ -32,7 +31,7 @@ export const CreateEmployeeReducer=(
 
         /** Update Data of Employee List */    
         case CreateEmployeeActions.UPDATE_EMPLOYEE_DATA:
-            let updateEmployeeData =state.employeeData.map((item:Employee) => item.id == action.payload.id ? action.payload : item);
+            let updateEmployeeData =state.employeeData.map((item:Employee) => item.id == action.id ? action.payload : item);
             return { ...state, employeeData: updateEmployeeData };
 
         default:

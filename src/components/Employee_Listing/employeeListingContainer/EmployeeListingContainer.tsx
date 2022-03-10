@@ -1,4 +1,4 @@
-import { EmployeeListingPresentation } from "./Employee_Listing_Presentation/EmployeeListingPresentation";
+import { EmployeeListingPresentation } from "./employeeListingPresentation/EmployeeListingPresentation";
 import { useEffect } from "react";
 import {
   getEmployeeData,
@@ -7,10 +7,11 @@ import {
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getIdEmployeeData } from "./Actions/CreateEmployeeAction";
-import { Employee } from "../Employee";
-import { AnyAction } from "redux";
+import { Employee, Props } from "../Employee";
 
-const EmployeeListingContainer = (props:AnyAction) => {
+
+const EmployeeListingContainer = (props:Props) => {
+
   useEffect(() => {
     props.getData();
   }, []);
@@ -28,14 +29,14 @@ const EmployeeListingContainer = (props:AnyAction) => {
   return (
     <div>
       <EmployeeListingPresentation
-        initialValues={props.actualEmployeeData}
+        initialValue={props.actualEmployeeData}
         removeItem={removeItem}
         navigate={navigate}
       />
     </div>
   );
 };
-const mapStateToProps = (state:AnyAction) => ({
+const mapStateToProps = (state:Props) => ({
   actualEmployeeData: state.CreateEmployeeReducer.employeeData,
 });
 
@@ -45,7 +46,7 @@ const mapDispatchToProps = (dispatch:Function) => ({
   nullData: (data:Employee) => dispatch(getIdEmployeeData(data)),
 });
 
-const UserListingFN = (props: AnyAction) => {
+const UserListingFN = (props: any) => {
   return <EmployeeListingContainer params={useParams()} {...props} />;
 };
 const employeeListingContainer = connect(
