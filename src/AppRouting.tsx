@@ -2,16 +2,13 @@ import { lazy } from "react";
 import { Routes,Route,
   useLocation,
   useNavigate } from "react-router-dom";
-// import { EmployeeFormContainer } from "./components/Employee_Form/Employee_Form_Container/EmployeeFormContainer";
-// import { EmployeeListingContainer } from "./components/Employee_Listing/Employee_Listing_Container/EmployeeListingContainer";
-// import { Header } from "./components/Header/Header";
 
-const HeaderComponent = lazy(() => import('./components/Header/Header').
+const HeaderComponent = lazy(() => import('./components/header/Header').
     then(({ Header }) => ({ default: Header })));
-const EmployeeListComponent = lazy(() => import('./components/Employee_Listing/employeeListingContainer/EmployeeListingContainer').
+const EmployeeListComponent = lazy(() => import('./components/employeeListing/employeeListingContainer/EmployeeListingContainer').
     then(({ EmployeeListingContainer }) => ({ default: EmployeeListingContainer })));
 
-const EmployeeFormComponent = lazy(() => import('./components/Employee_Form/employeeFormContainer/EmployeeFormContainer').
+const EmployeeFormComponent = lazy(() => import('./components/employeeForm/employeeFormContainer/EmployeeFormContainer').
     then(({ EmployeeFormContainer }) => ({ default: EmployeeFormContainer })));
 
 const AppRouting = (props:any) => {

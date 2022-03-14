@@ -55,6 +55,14 @@
       "email": "y@gmail.com",
       "phone": "7896541230",
       "id": 7
+    },
+    {
+      "firstName": "Mayur",
+      "lastName": "Patel",
+      "username": "Mayur",
+      "email": "m@gmail.com",
+      "phone": "1236547890",
+      "id": 8
     }
   ]
 }

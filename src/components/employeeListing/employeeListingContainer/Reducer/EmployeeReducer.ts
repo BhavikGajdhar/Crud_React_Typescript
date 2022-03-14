@@ -1,4 +1,4 @@
-import { Employee, Props } from "../../Employee";
+import { Employee, ReducerProps } from "../../Employee";
 import { CreateEmployeeActions } from "../Constants/Constants"
 
 export const CreateEmployeeReducer=(
@@ -6,7 +6,7 @@ export const CreateEmployeeReducer=(
         employeeData:[],
         saveEmployeeData:null,
         idByEmployeeData:null
-    },action:Props
+    },action:ReducerProps
 )=>{
     switch(action.type){
 

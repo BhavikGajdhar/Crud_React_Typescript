@@ -6,11 +6,11 @@ import {
   getEmployeeDataById,
   postEmployeeData,
   putEmployeeData,
-} from "../../Employee_Listing/employeeListingContainer/Middleware/EmployeeMiddleware";
-import { Employee, Props } from "../../Employee_Listing/Employee";
+} from "../../employeeListing/employeeListingContainer/Middleware/EmployeeMiddleware";
+import { FormContainerProps, Employee } from "../../employeeListing/Employee";
 
 
-const EmployeeFormContainer = (props: Props) => {
+const EmployeeFormContainer = (props: FormContainerProps) => {
 
   let { id } = props.params;
 
@@ -46,7 +46,7 @@ const EmployeeFormContainer = (props: Props) => {
     </div>
   );
 };
-const mapStateToProps = (state: Props) => ({
+const mapStateToProps = (state: FormContainerProps) => ({
   employeeDataById: state.CreateEmployeeReducer.idByEmployeeData,
 });
 

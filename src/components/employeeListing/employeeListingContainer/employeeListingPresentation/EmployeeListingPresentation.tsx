@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { Employee, Props } from "../../Employee";
+import { Employee, ListPresentationProps } from "../../Employee";
 import "../../../../App.css";
 
 
-const EmployeeListingPresentation = (props:any) => {
+const EmployeeListingPresentation = (props:ListPresentationProps) => {
 
   /** Go Back Navigation of Current Page */
   const navigateBack = () => {
@@ -31,7 +31,7 @@ const EmployeeListingPresentation = (props:any) => {
         </thead>
         <tbody>
           {props.initialValue &&
-            props.initialValue.map((user:Employee, i:any) => {
+            props.initialValue.map((user:Employee, i:number) => {
               return (
                 <tr key={i}>
                   <td>{user.id}</td>

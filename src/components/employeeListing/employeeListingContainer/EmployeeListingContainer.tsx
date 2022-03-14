@@ -7,10 +7,10 @@ import {
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getIdEmployeeData } from "./Actions/CreateEmployeeAction";
-import { Employee, Props } from "../Employee";
+import { ListContainerProps, Employee } from "../Employee";
 
 
-const EmployeeListingContainer = (props:Props) => {
+const EmployeeListingContainer = (props:ListContainerProps) => {
 
   useEffect(() => {
     props.getData();
@@ -36,7 +36,7 @@ const EmployeeListingContainer = (props:Props) => {
     </div>
   );
 };
-const mapStateToProps = (state:Props) => ({
+const mapStateToProps = (state:ListContainerProps) => ({
   actualEmployeeData: state.CreateEmployeeReducer.employeeData,
 });
 

@@ -1,8 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { Employee, Props } from "../../../Employee_Listing/Employee";
-import { ValidationSchema } from "../../../Employee_Listing/employeeListingContainer/Constants/Constants";
+import { Employee, FormPresentationProps} from "../../../employeeListing/Employee";
+import { ValidationSchema } from "../../../employeeListing/employeeListingContainer/Constants/Constants";
 
-const EmployeeFormPresentation = (props: any) => {
+const EmployeeFormPresentation = (props: FormPresentationProps) => {
 
   const initialValue = {
     firstName: "",
@@ -17,7 +17,7 @@ const EmployeeFormPresentation = (props: any) => {
     props.navigate();
   };
 
-  /**  Update and Submit form call for  middleware*/
+  /**  Update and Submit form call for  middleware */
   const handleSubmit = (values: Employee) => {
     if (values.id) {
       props.update(values.id, values);
@@ -31,7 +31,7 @@ const EmployeeFormPresentation = (props: any) => {
         initialValues={props.initialValues ? props.initialValues : initialValue}
         enableReinitialize={true}
         validationSchema={ValidationSchema}
-        onSubmit={(values) => {
+        onSubmit={(values:Employee) => {
           handleSubmit(values);
         }}
       >
